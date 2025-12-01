@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Patrick Nyutu Mbugua — Portfolio</title>
+  <meta name="description" content="Portfolio of Patrick Nyutu Mbugua — Marketing Expert, Social Media Specialist, Problem Solver" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Patrick Nyutu Mbugua</h1>
+    <p class="tagline">Marketing Expert • Social Media Specialist • Problem Solver</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="mailto:nyutu4@gmail.com">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="text">
+        <h2 class="fade-up" style="animation-delay:.1s">Hi, I'm Patrick — I help brands grow online.</h2>
+        <p class="fade-up" style="animation-delay:.2s">I build marketing systems, social strategies, and campaign frameworks that drive measurable growth.</p>
+        <p class="fade-up" style="animation-delay:.3s"><a href="projects.html">See my work →</a></p>
+      </div>
+      <img src="images/hero-graphic.png" alt="Hero graphic" class="img-hero" />
+    </section>
+
+    <section style="margin-top:28px">
+      <h3 class="fade-up" style="animation-delay:.35s">Selected Work</h3>
+      <div class="grid" style="margin-top:12px">
+        <div class="tile fade-up" style="animation-delay:.4s">
+          <h4>Social Media Growth System</h4>
+          <p>Optimized workflows and engagement systems to help brands scale online.</p>
+        </div>
+        <div class="tile fade-up" style="animation-delay:.45s">
+          <h4>Marketing Funnel Optimization</h4>
+          <p>Improved conversions through data-driven strategy and testing.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Patrick Nyutu Mbugua — <a href="resume.pdf">Resume (PDF)</a></p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    // simple entrance observer for fade-up elements
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+        }
+      });
+    }, {threshold:0.15});
+    document.querySelectorAll('.fade-up').forEach(function(el){ observer.observe(el); });
+  </script>
+</body>
+</html>
