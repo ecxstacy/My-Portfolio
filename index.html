@@ -3,62 +3,85 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Patrick Nyutu Mbugua — Portfolio</title>
-  <meta name="description" content="Portfolio of Patrick Nyutu Mbugua — Marketing Expert, Social Media Specialist, Problem Solver" />
+  <title>AI Tattoo Prompt Builder</title>
+  <meta name="description" content="Generate detailed AI tattoo generation requests in seconds." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header">
-    <h1>Patrick Nyutu Mbugua</h1>
-    <p class="tagline">Marketing Expert • Social Media Specialist • Problem Solver</p>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-      <a href="mailto:nyutu4@gmail.com">Contact</a>
-    </nav>
+    <h1>AI Tattoo Prompt Builder</h1>
+    <p class="tagline">Create polished tattoo generation requests for Midjourney, DALL·E, Stable Diffusion, and more.</p>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="text">
-        <h2 class="fade-up" style="animation-delay:.1s">Hi, I'm Patrick — I help brands grow online.</h2>
-        <p class="fade-up" style="animation-delay:.2s">I build marketing systems, social strategies, and campaign frameworks that drive measurable growth.</p>
-        <p class="fade-up" style="animation-delay:.3s"><a href="projects.html">See my work →</a></p>
-      </div>
-      <img src="images/hero-graphic.png" alt="Hero graphic" class="img-hero" />
+    <section class="card">
+      <h2>Describe your tattoo idea</h2>
+      <form id="prompt-form" class="prompt-form">
+        <label>
+          Main concept
+          <input type="text" id="concept" placeholder="e.g., a phoenix rising from flames" required />
+        </label>
+
+        <div class="row">
+          <label>
+            Style
+            <select id="style">
+              <option>Blackwork</option>
+              <option>Traditional</option>
+              <option>Neo-traditional</option>
+              <option>Realism</option>
+              <option>Watercolor</option>
+              <option>Japanese</option>
+              <option>Tribal</option>
+              <option>Minimalist</option>
+              <option selected>Fine line</option>
+            </select>
+          </label>
+          <label>
+            Placement
+            <select id="placement">
+              <option>Forearm</option>
+              <option>Upper arm</option>
+              <option>Chest</option>
+              <option>Back</option>
+              <option>Shoulder</option>
+              <option selected>Calf</option>
+              <option>Thigh</option>
+              <option>Ribcage</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="row">
+          <label>
+            Mood
+            <input type="text" id="mood" placeholder="e.g., mystical, powerful, elegant" />
+          </label>
+          <label>
+            Color palette
+            <input type="text" id="colors" placeholder="e.g., black, red, gold accents" />
+          </label>
+        </div>
+
+        <label>
+          Extra details
+          <textarea id="details" rows="4" placeholder="e.g., include smoke, floral frame, high contrast shading"></textarea>
+        </label>
+
+        <button type="submit">Generate Tattoo Request</button>
+      </form>
     </section>
 
-    <section style="margin-top:28px">
-      <h3 class="fade-up" style="animation-delay:.35s">Selected Work</h3>
-      <div class="grid" style="margin-top:12px">
-        <div class="tile fade-up" style="animation-delay:.4s">
-          <h4>Social Media Growth System</h4>
-          <p>Optimized workflows and engagement systems to help brands scale online.</p>
-        </div>
-        <div class="tile fade-up" style="animation-delay:.45s">
-          <h4>Marketing Funnel Optimization</h4>
-          <p>Improved conversions through data-driven strategy and testing.</p>
-        </div>
+    <section class="card output-card">
+      <div class="output-head">
+        <h2>Your AI generation request</h2>
+        <button id="copy-btn" type="button">Copy</button>
       </div>
+      <pre id="result">Fill the form and click “Generate Tattoo Request”.</pre>
+      <p class="tip">Tip: Paste this prompt directly into your image generator and iterate by changing style, mood, or detail fields.</p>
     </section>
   </main>
 
-  <footer>
-    <p>© <span id="year"></span> Patrick Nyutu Mbugua — <a href="resume.pdf">Resume (PDF)</a></p>
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    // simple entrance observer for fade-up elements
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          e.target.classList.add('visible');
-        }
-      });
-    }, {threshold:0.15});
-    document.querySelectorAll('.fade-up').forEach(function(el){ observer.observe(el); });
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
